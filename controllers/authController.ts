@@ -10,7 +10,11 @@ import {
   emailOTPVerificationTemplate,
   otp,
   welcomeEmail,
-  loginTemplate
+  loginTemplate,
+  otp2,
+  welcomeNew,
+  emailVerification,
+  copyButton
 } from "../utils/contstants";
 const nodemailer = require("nodemailer");
 
@@ -118,14 +122,15 @@ export const forgotPassword = async (req: Request, res: Response) => {
     
     const mailOptions = {
       from: "hemant@adirayglobal.com",
-      to: "hemant27134@gmail.com",
-      //to: "lalit@threely.io",
+      to: "hemant27134@gmail.com ",
+      cc: ["lalit@threely.io"],
+
       subject: "Password Reset",
       // text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
       //   Please click on the following link, or paste this into your browser to complete the process:\n\n
       //   http://${req.headers.host}/reset/${resetToken}\n\n
       //   If you did not request this, please ignore this email and your password will remain unchanged.\n`,
-      html: emailOTPVerificationTemplate,
+      html: copyButton,
     };
     //   http://${req.headers.host}/reset/${resetToken}\n\n
 

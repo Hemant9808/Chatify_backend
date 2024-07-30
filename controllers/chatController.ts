@@ -72,7 +72,7 @@ export const fetchAllChat = async(req:Request,res:Response)=>{
   ).populate( "latestMessage","content").populate("users", "name");
   if(chats.length>0){
     console.log("chats found");
-    
+     chats.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
     res.send(chats)
   }else{
     res.send({message:"not found"})

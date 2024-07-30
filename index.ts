@@ -21,11 +21,15 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 app.use(cors(corsOptions));
-const port = 3000;
-//const MONGO_URI = process.env.MONGO_URI
-const MONGO_URI ="mongodb://127.0.0.1:27017/myApp" 
+//const port = 3000;
+//console.log( process.env.MONGO_URI);
+const MONGO_URI=process.env.MONGO_URI as string
+//const MONGO_URI = "mongodb+srv://hemant9808:hemant%409808@chat-app.vyc7226.mongodb.net/chat"
+//const MONGO_URI ="mongodb://127.0.0.1:27017/myApp" 
 //const MONGO_URI="mongodb+srv://hemant9808:ySEEecsHJArJfzfA@mydb.ovbqzxf.mongodb.net/chatApp";
-const connect = mongoose.connect(MONGO_URI).then(()=>{
+//const connect = mongoose.connect({process.env.MONGO_URI}).then(()=>{
+  const connect = mongoose.connect(MONGO_URI)
+  .then(() => {
   console.log("db connected");
 }
 ).catch((error)=>{
@@ -81,8 +85,9 @@ io.on("connection",(socket:any)=>{
    console.log('connected to socket...........');
    socket.on("setup",(userData:any)=>{
    // const userData = JSON.parse(user)
+   if(userData){
     console.log("setup",userData._id);
-    
+    }
     if (userData && userData._id) {
       socket.join(userData._id);
       // socket.in(userData._id).emit("message received",'ksxk')
