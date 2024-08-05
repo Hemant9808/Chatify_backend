@@ -100,7 +100,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
 
     if (!foundUser) {
       console.log("usernot fournd");
-      return res.status(404).json({ message: "User does not exist" });
+      return res.status(400).json({ message: "User does not exist" });
     }
 
     const resetToken = crypto.randomBytes(20).toString("hex");
@@ -123,7 +123,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
     const mailOptions = {
       from: "hemant@adirayglobal.com",
       to: "hemant27134@gmail.com ",
-      cc: ["lalit@threely.io"],
+      //cc: ["lalit@threely.io"],
 
       subject: "Password Reset",
       // text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n

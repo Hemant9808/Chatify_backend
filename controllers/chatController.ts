@@ -1,12 +1,16 @@
-import { log } from "console";
+
 import chatSchema from "../models/chatModel";
 import userSchema from '../models/userModel';
 import { Request, Response } from 'express';
-import { request } from "http";
+
 
 export const accessChat = async(req:Request,res:Response)=>{
     const userId=req.body.userId;
     console.log('inside chat');
+    if (!req.body.user || !req.body.user._id) {
+      return res.status(400).json({ error: "User data is missing or invalid" });
+    }
+  
     //console.log('inside chat',req.body);
     console.log('inside chat userId',userId);
    console.log('inside chat user._Id',req.body.user);
