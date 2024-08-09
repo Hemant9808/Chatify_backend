@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.userSearch = exports.resetPassword = exports.forgotPassword = exports.login = exports.userRegister = void 0;
 const clientModel_1 = __importDefault(require("../models/clientModel"));
 const generateToken_1 = __importDefault(require("../config/generateToken"));
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const crypto_1 = __importDefault(require("crypto"));
 const contstants_1 = require("../utils/contstants");
 const nodemailer = require("nodemailer");

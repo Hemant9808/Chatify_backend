@@ -3,7 +3,7 @@ import Client from "../models/clientModel";
 
 import { Request, Response } from "express";
 import generateToken from "../config/generateToken";
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 import crypto from "crypto";
 import {
   adminSendOtpTemplate,
