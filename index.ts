@@ -25,8 +25,8 @@ app.use(cors(corsOptions));
 //console.log( process.env.MONGO_URI);
 //const MONGO_URI=process.env.MONGO_URI as string
 //const MONGO_URI = "mongodb+srv://hemant9808:hemant%409808@chat-app.vyc7226.mongodb.net/chat"
-//const MONGO_URI ="mongodb://127.0.0.1:27017/myApp" 
-const MONGO_URI ="mongodb+srv://hemant9808:ySEEecsHJArJfzfA@mydb.ovbqzxf.mongodb.net/mydb'"
+const MONGO_URI ="mongodb://127.0.0.1:27017/myApp" 
+//const MONGO_URI ="mongodb+srv://hemant9808:ySEEecsHJArJfzfA@mydb.ovbqzxf.mongodb.net/mydb'"
 //const MONGO_URI="mongodb+srv://hemant9808:ySEEecsHJArJfzfA@mydb.ovbqzxf.mongodb.net/chatApp";
 //const connect = mongoose.connect({process.env.MONGO_URI}).then(()=>{
   const connect = mongoose.connect(MONGO_URI)

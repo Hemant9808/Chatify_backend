@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const authController_1 = require("../controllers/authController");
+const chatController_1 = require("../controllers/chatController");
 const auth_1 = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
-router.route("/").post(auth_1.isAuth, authController_1.forgotPassword);
+router.route("/accessChat").post(auth_1.isAuth, chatController_1.accessChat);
+router.route("/fetchAllChat").post(auth_1.isAuth, chatController_1.fetchAllChat);
+router.route("/updateChat").post(chatController_1.updateChat);
+router.route("/chatDetails").post(chatController_1.chatDetails);
 exports.default = router;

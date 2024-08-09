@@ -11,3 +11,4 @@ const messageSchema = new mongoose_2.Schema({
     chat: { type: mongoose_1.default.Schema.Types.ObjectId, ref: "Chat" },
     readBy: [{ type: mongoose_1.default.Schema.Types.ObjectId, ref: 'Client' }]
 }, { timestamps: true });
+exports.default = mongoose_1.default.model("Message", messageSchema);
