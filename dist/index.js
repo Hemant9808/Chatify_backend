@@ -37,9 +37,9 @@ app.use(cors(corsOptions));
 //console.log( process.env.MONGO_URI);
 //const MONGO_URI=process.env.MONGO_URI as string
 //const MONGO_URI = "mongodb+srv://hemant9808:hemant%409808@chat-app.vyc7226.mongodb.net/chat"
-const MONGO_URI = "mongodb://127.0.0.1:27017/myApp";
+//const MONGO_URI ="mongodb://127.0.0.1:27017/myApp" 
 //const MONGO_URI ="mongodb+srv://hemant9808:ySEEecsHJArJfzfA@mydb.ovbqzxf.mongodb.net/mydb'"
-//const MONGO_URI="mongodb+srv://hemant9808:ySEEecsHJArJfzfA@mydb.ovbqzxf.mongodb.net/chatApp";
+const MONGO_URI = "mongodb+srv://hemant9808:ySEEecsHJArJfzfA@mydb.ovbqzxf.mongodb.net/chatApp";
 //const connect = mongoose.connect({process.env.MONGO_URI}).then(()=>{
 const connect = mongoose_1.default.connect(MONGO_URI)
     .then(() => {
@@ -69,8 +69,8 @@ app.post('/isAuth', auth_1.isAuth);
 //app.post('/accessChat',accessChat)
 app.use('/chat', chatRoutes_1.default);
 app.use('/', messageRoute_1.default);
-const PORT = 3000;
-const server = app.listen(PORT || 3000, () => {
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });
 const io = require('socket.io')(server, {
