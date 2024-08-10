@@ -68,8 +68,8 @@ app.post('/isAuth', isAuth);
 app.use('/chat',chatRoutes);
 app.use('/',messageRoute);
 
-const PORT = 3000;
-const server = app.listen(PORT || 3000, () => {
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT,  () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
 const io = require('socket.io')(
